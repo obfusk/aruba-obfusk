@@ -19,11 +19,82 @@
 []: }}}1
 
 ## Examples
+
 []: {{{1
 
-...
+```
+Scenario Outline:
+  When  I run `some command` with:
+    | --foo | <foo> |
+    | --bar | <bar> |
+  Then  it should succeed
+  And   the last stdout should match:
+    """
+    \A==> Doing something \.\.\.
+    ==> Done\.
+    \Z
+    """
+  When  I run `some <command>`
+  Then  it should fail
+  Examples:
+    | foo   | bar   | command |
+    | one   | two   | three   |
+    | four  | five  | six     |
+```
 
 []: }}}1
+
+[]: {{{1
+
+```
+Scenario:
+  When  I run `echo $FOO` with bash
+  Then  it should succeed
+  And   the last stdout should match:
+    """
+    \Afoo bar baz
+    \Z
+    """
+```
+
+[]: }}}1
+
+[]: {{{1
+
+```
+Scenario:
+  When  I run `some command`
+  Then  it should succeed
+  And   the last stdout should be:
+    """
+    ...
+
+    """
+```
+
+[]: }}}1
+
+[]: {{{1
+
+```
+Scenario:
+  When  I run `some failing command`
+  Then  the exit status should be 1
+  And   the last stderr should be:
+    """
+    Error: oops
+
+    """
+```
+
+[]: }}}1
+
+```
+Scenario:
+  When  ...
+  And   I sleep 5 seconds
+  Then  ...
+```
 
 ## Specs & Docs
 []: {{{1
