@@ -22,7 +22,7 @@
 
 []: {{{1
 
-```
+```cucumber
 Feature:
   Scenario Outline:
     When  I run `some command` with:
@@ -47,7 +47,7 @@ Feature:
 
 []: {{{1
 
-```
+```cucumber
 Feature:
   Scenario:
     When  I run `echo $FOO` with bash
@@ -63,7 +63,7 @@ Feature:
 
 []: {{{1
 
-```
+```cucumber
 Feature:
   Scenario:
     When  I run `some command`
@@ -79,7 +79,7 @@ Feature:
 
 []: {{{1
 
-```
+```cucumber
 Feature:
   Scenario:
     When  I run `some failing command`
@@ -93,7 +93,7 @@ Feature:
 
 []: }}}1
 
-```
+```cucumber
 Feature:
   Scenario:
     When  ...
