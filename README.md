@@ -23,24 +23,23 @@
 []: {{{1
 
 ```cucumber
-Feature:
-  Scenario Outline:
-    When  I run `some command` with:
-      | --foo | <foo> |
-      | --bar | <bar> |
-    Then  it should succeed
-    And   the last stdout should match:
-      """
-      \A==> Doing something \.\.\.
-      ==> Done\.
-      \Z
-      """
-    When  I run `some <command>`
-    Then  it should fail
-    Examples:
-      | foo   | bar   | command |
-      | one   | two   | three   |
-      | four  | five  | six     |
+Scenario Outline:
+  When  I run `some command` with:
+    | --foo | <foo> |
+    | --bar | <bar> |
+  Then  it should succeed
+  And   the last stdout should match:
+    """
+    \A==> Doing something \.\.\.
+    ==> Done\.
+    \Z
+    """
+  When  I run `some <command>`
+  Then  it should fail
+  Examples:
+    | foo   | bar   | command |
+    | one   | two   | three   |
+    | four  | five  | six     |
 ```
 
 []: }}}1
@@ -48,15 +47,13 @@ Feature:
 []: {{{1
 
 ```cucumber
-Feature:
-  Scenario:
-    When  I run `echo $FOO` with bash
-    Then  it should succeed
-    And   the last stdout should match:
-      """
-      \Afoo bar baz
-      \Z
-      """
+When  I run `echo $FOO` with bash
+Then  it should succeed
+And   the last stdout should match:
+  """
+  \Afoo bar baz
+  \Z
+  """
 ```
 
 []: }}}1
@@ -64,15 +61,13 @@ Feature:
 []: {{{1
 
 ```cucumber
-Feature:
-  Scenario:
-    When  I run `some command`
-    Then  it should succeed
-    And   the last stdout should be:
-      """
-      ...
+When  I run `some command`
+Then  it should succeed
+And   the last stdout should be:
+  """
+  ...
 
-      """
+  """
 ```
 
 []: }}}1
@@ -80,25 +75,21 @@ Feature:
 []: {{{1
 
 ```cucumber
-Feature:
-  Scenario:
-    When  I run `some failing command`
-    Then  the exit status should be 1
-    And   the last stderr should be:
-      """
-      Error: oops
+When  I run `some failing command`
+Then  the exit status should be 1
+And   the last stderr should be:
+  """
+  Error: oops
 
-      """
+  """
 ```
 
 []: }}}1
 
 ```cucumber
-Feature:
-  Scenario:
-    When  ...
-    And   I sleep 5 seconds
-    Then  ...
+When  ...
+And   I sleep 5 seconds
+Then  ...
 ```
 
 ## Specs & Docs
